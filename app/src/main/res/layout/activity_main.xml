@@ -15,25 +15,28 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/imageView"
-        android:src="@drawable/novelbackground"
+        android:src="@drawable/background"
         android:scaleType="centerCrop"/>
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start Sharing!"
         android:id="@+id/startSharingbutton"
         android:background="@drawable/my_button_bg"
-        android:layout_below="@+id/appTitle"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textColor="#ffffff"
+        android:padding="7dp"
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="A \n Novel \n Sharing \n App"
-        android:textSize="60sp"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="80sp"
         android:id="@+id/appTitle"
         android:gravity="center_horizontal"
         android:layout_centerVertical="true"
