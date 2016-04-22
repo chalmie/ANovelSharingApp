@@ -23,9 +23,20 @@
         android:layout_height="wrap_content"
         android:text="Start Sharing!"
         android:id="@+id/startSharingbutton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@color/colorSecondaryText"
-        android:layout_marginBottom="64dp" />
+        android:background="@drawable/my_button_bg"
+        android:layout_below="@+id/appTitle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="A \n Novel \n Sharing \n App"
+        android:textSize="60sp"
+        android:id="@+id/appTitle"
+        android:gravity="center_horizontal"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
