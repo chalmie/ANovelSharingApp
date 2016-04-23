@@ -31,6 +31,11 @@ public class SignUpActivityInstrumentationTest {
     public void usernameIsSentToProfileActivity() {
         String username = "testUsername";
         onView(withId(R.id.usernameEditText)).perform(typeText(username), closeSoftKeyboard());
+        try {
+            Thread.sleep(50);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         onView(withId(R.id.signUpButton)).perform(click());
         onView(withId(R.id.welcomeTextView)).check(matches(withText("Welcome " + username + "!")));
     }
