@@ -22,7 +22,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.chalmie.anovelsharingapp.MainActivity" />
         </activity>
-        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".SignUpActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.chalmie.anovelsharingapp.LoginActivity" />
+        </activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".LibraryActivity" />
+        <activity android:name=".SharedBooksActivity" />
+        <activity android:name=".SearchActivity"></activity>
     </application>
 
 </manifest>

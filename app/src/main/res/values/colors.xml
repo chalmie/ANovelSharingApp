@@ -4,8 +4,9 @@
     <color name="colorPrimaryDark">#2976ae</color>
     <color name="colorSecondaryLight">#fa8261</color>
     <color name="colorSecondaryDark">#D83E39</color>
-    <color name="colorTertiaryLight">#b2eaa4</color>
+    <color name="colorLightGreen">#b2eaa4</color>
     <color name="colorTertiaryDark">#286520</color>
+    <color name="colorLightPink">#F8BBD0</color>
     <color name="colorTextIcons">#FFFFFF</color>
     <color name="colorAccent">#009688</color>
     <color name="colorPrimaryText">#212121</color>

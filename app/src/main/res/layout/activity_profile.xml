@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.chalmie.anovelsharingapp.ProfileActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profileImageView"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@drawable/profilepic"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="74dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Library"
+        android:textSize="20sp"
+        android:id="@+id/libraryButton"
+        android:background="@drawable/green_button"
+        android:textColor="@drawable/green_button_color"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Shared Books"
+        android:textSize="20sp"
+        android:id="@+id/sharedBooksButton"
+        android:background="@drawable/pink_button"
+        android:textColor="@drawable/pink_button_color"
+        android:layout_marginTop="3dp"
+        android:layout_above="@+id/libraryButton"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:textSize="20sp"
+        android:background="@drawable/login_button"
+        android:textColor="@drawable/login_button_color"
+        android:id="@+id/searchButton"
+        android:layout_above="@+id/sharedBooksButton"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
