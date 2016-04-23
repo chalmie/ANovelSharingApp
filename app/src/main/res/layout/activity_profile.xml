@@ -51,5 +51,15 @@
         android:layout_above="@+id/sharedBooksButton"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/welcomeTextView"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>
