@@ -3,7 +3,8 @@ package com.chalmie.anovelsharingapp;
 import android.os.Build;
 import android.widget.Button;
 
-import org.apache.tools.ant.Main;
+import com.chalmie.anovelsharingapp.ui.MainActivity;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

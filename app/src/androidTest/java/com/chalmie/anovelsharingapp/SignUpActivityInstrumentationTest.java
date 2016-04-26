@@ -2,6 +2,8 @@ package com.chalmie.anovelsharingapp;
 
 import android.support.test.rule.ActivityTestRule;
 
+import com.chalmie.anovelsharingapp.ui.SignUpActivity;
+
 import org.junit.Rule;
 import org.junit.Test;
 

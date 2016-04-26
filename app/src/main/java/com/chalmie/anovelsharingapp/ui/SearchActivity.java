@@ -1,13 +1,15 @@
-package com.chalmie.anovelsharingapp;
+package com.chalmie.anovelsharingapp.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SharedBooksActivity extends AppCompatActivity {
+import com.chalmie.anovelsharingapp.R;
+
+public class SearchActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shared_books);
+        setContentView(R.layout.activity_search);
     }
 }
