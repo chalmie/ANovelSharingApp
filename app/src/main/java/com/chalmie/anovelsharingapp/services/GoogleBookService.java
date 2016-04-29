@@ -29,8 +29,8 @@ public class GoogleBookService {
         String API_KEY = Constants.API_KEY;
         OkHttpClient client = new OkHttpClient.Builder().build();
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.BOOK_BASE_URL).newBuilder();
-        urlBuilder.addQueryParameter("key", API_KEY);
         urlBuilder.addQueryParameter(Constants.BOOK_QUERY_TITLE_PARAMETER, title);
+        urlBuilder.addQueryParameter("key", API_KEY);
 
         String url = urlBuilder.build().toString();
         Log.v("URL", url);

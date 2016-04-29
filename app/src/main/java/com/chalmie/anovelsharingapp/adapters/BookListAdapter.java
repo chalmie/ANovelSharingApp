@@ -3,10 +3,14 @@ package com.chalmie.anovelsharingapp.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.chalmie.anovelsharingapp.R;
 import com.chalmie.anovelsharingapp.models.Book;
+import com.chalmie.anovelsharingapp.ui.LibraryDetailActivity;
 
 import org.parceler.Parcels;
 
@@ -18,7 +22,7 @@ import butterknife.ButterKnife;
 /**
  * Created by chalmie on 4/29/16.
  */
-public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.BookViewHolder {
+public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.BookViewHolder> {
     private static final int MAX_WIDTH = 400;
     private static final int MAX_HEIGHT = 300;
     private ArrayList<Book> mBooks = new ArrayList<>();
@@ -27,6 +31,13 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.BookVi
     public BookListAdapter(Context context, ArrayList<Book> books) {
         mContext = context;
         mBooks = books;
+    }
+
+    @Override
+    public BookListAdapter.BookViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.book_list_display, parent, false);
+        BookViewHolder viewHolder = new BookViewHolder(view);
+        return viewHolder;
     }
 
     @Override
@@ -52,7 +63,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.BookVi
                 @Override
                 public void onClick(View v) {
                     int itemPosition = getLayoutPosition();
-                    Intent intent = new Intent(mContext, LibraryListDetailActivity.class);
+                    Intent intent = new Intent(mContext, LibraryDetailActivity.class);
                     intent.putExtra("position", itemPosition + "");
                     intent.putExtra("books", Parcels.wrap(mBooks));
                     mContext.startActivity(intent);

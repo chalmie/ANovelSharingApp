@@ -35,7 +35,8 @@
         <activity android:name=".ui.LibraryActivity" />
         <activity android:name=".ui.SharedBooksActivity" />
         <activity android:name=".ui.SearchActivity" />
-        <activity android:name=".ui.LibraryListActivity"></activity>
+        <activity android:name=".ui.LibraryListActivity" />
+        <activity android:name=".ui.LibraryDetailActivity"></activity>
     </application>
 
 </manifest>
