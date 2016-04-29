@@ -26,9 +26,9 @@ public class LibraryDetailFragment extends Fragment {
 
     private Book mBook;
 
-//    public LibraryDetailFragment() {
-//        // Required empty public constructor
-//    }
+    public LibraryDetailFragment() {
+        // Required empty public constructor
+    }
 
     public static LibraryDetailFragment newInstance(Book book) {
         LibraryDetailFragment libraryDetailFragment = new LibraryDetailFragment();

@@ -51,7 +51,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.BookVi
     }
 
     public class BookViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.titleTextView) TextView mBookTextView;
+        @Bind(R.id.titleTextView) TextView mTitleTextView;
         private Context mContext;
 
         public BookViewHolder(View itemView) {
@@ -72,7 +72,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.BookVi
         }
 
         public void bindBook(Book book) {
-            mBookTextView.setText(book.getBookTitle());
+            mTitleTextView.setText(book.getBookTitle());
         }
     }
 }

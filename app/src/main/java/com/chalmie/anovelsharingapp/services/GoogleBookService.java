@@ -51,7 +51,8 @@ public class GoogleBookService {
                 JSONArray resultsJSON = bookJSON.getJSONArray("items");
                 for (int i = 0; i < resultsJSON.length(); i++) {
                     JSONObject basicInfoJSON = resultsJSON.getJSONObject(i);
-                    String title = basicInfoJSON.getString("kind");
+                    JSONObject volumeInfoJSON = basicInfoJSON.getJSONObject("volumeInfo");
+                    String title = volumeInfoJSON.getString("title");
                     Book book = new Book(title);
                     books.add(book);
                 }
