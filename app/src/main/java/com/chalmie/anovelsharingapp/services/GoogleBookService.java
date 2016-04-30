@@ -52,7 +52,17 @@ public class GoogleBookService {
                 for (int i = 0; i < resultsJSON.length(); i++) {
                     JSONObject basicInfoJSON = resultsJSON.getJSONObject(i);
                     JSONObject volumeInfoJSON = basicInfoJSON.getJSONObject("volumeInfo");
+                    JSONArray authorsInfoJSON = volumeInfoJSON.getJSONArray("authors");
+                    JSONObject imagesInfoJSON = basicInfoJSON.getJSONObject("imageLinks");
+
                     String title = volumeInfoJSON.getString("title");
+                    String publishedDate = volumeInfoJSON.getString("publishedDate");
+                    int pageCount = volumeInfoJSON.getInt("pageCount");
+                    String author = authorsInfoJSON.getString(0);
+                    String image = imagesInfoJSON.getString("thumbnail");
+
+
+
                     Book book = new Book(title);
                     books.add(book);
                 }
