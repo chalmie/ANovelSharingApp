@@ -18,10 +18,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/titleTextView"
-            android:textSize="20dp"
+            android:textSize="40dp"
             android:textStyle="bold"
             android:text="Book Title"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 
 
 
@@ -35,6 +37,15 @@
         android:layout_below="@+id/titleTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="156dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Author"
+                android:id="@+id/authorTextView"
+                android:layout_below="@+id/titleTextView"
+                android:layout_centerHorizontal="true"
+                android:textSize="25sp" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

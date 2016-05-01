@@ -25,6 +25,9 @@ import butterknife.ButterKnife;
 public class LibraryDetailFragment extends Fragment {
     @Bind(R.id.titleTextView) TextView mTitleTextView;
     @Bind(R.id.bookImageView) ImageView mBookImageView;
+    @Bind(R.id.authorTextView) TextView mAuthorTextView;
+    @Bind(R.id.pageCountTextView) TextView mPageCountTextView;
+    @Bind(R.id.publishedDateTextView) TextView mPublishedDateTextView;
 
 
     private Book mBook;
@@ -57,6 +60,9 @@ public class LibraryDetailFragment extends Fragment {
         ButterKnife.bind(this,view);
         Picasso.with(view.getContext()).load(mBook.getBookImage()).into(mBookImageView);
         mTitleTextView.setText(mBook.getBookTitle());
+        mAuthorTextView.setText("Author: " + mBook.getBookAuthor());
+        mPageCountTextView.setText("Pages: " + mBook.getPageCount());
+        mPublishedDateTextView.setText("Published Date: " + mBook.getPublishedDate());
         return view;
     }
 

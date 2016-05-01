@@ -53,6 +53,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.BookVi
     public class BookViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.titleTextView) TextView mTitleTextView;
         @Bind(R.id.bookImageView) ImageView mBookImageView;
+        @Bind(R.id.authorTextView) TextView mAuthorTextView;
         private Context mContext;
 
         public BookViewHolder(View itemView) {
@@ -75,6 +76,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.BookVi
 
         public void bindBook(Book book) {
             mTitleTextView.setText(book.getBookTitle());
+            mAuthorTextView.setText(book.getBookAuthor());
             Picasso.with(mContext).load(book.getBookImage()).into(mBookImageView);
         }
     }
