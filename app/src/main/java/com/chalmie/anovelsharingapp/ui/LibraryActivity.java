@@ -9,8 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.chalmie.anovelsharingapp.Constants;
 import com.chalmie.anovelsharingapp.R;
 import com.chalmie.anovelsharingapp.models.Book;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -22,14 +27,26 @@ public class LibraryActivity extends AppCompatActivity implements View.OnClickLi
     @Bind(R.id.searchButton) Button mSearchButton;
     @Bind(R.id.searchBookEditText) EditText mSearchBookEditText;
     public ArrayList<Book> mBooks = new ArrayList<>();
+    private Firebase mSearchedBookRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
         ButterKnife.bind(this);
-
-
+//        Firebase mSearchedBookRef = new Firebase(Constants.FIREBASE_URL_ADDED_BOOK);
+//
+//        mSearchedBookRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                String books = dataSnapshot.getValue().toString();
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//
+//            }
+//        });
 
         mSearchButton.setOnClickListener(this);
     }
