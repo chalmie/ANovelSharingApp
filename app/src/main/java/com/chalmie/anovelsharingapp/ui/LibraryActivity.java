@@ -3,6 +3,7 @@ package com.chalmie.anovelsharingapp.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -23,7 +24,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class LibraryActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.userLibraryListView) ListView mUserLibraryListView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     @Bind(R.id.searchButton) Button mSearchButton;
     @Bind(R.id.searchBookEditText) EditText mSearchBookEditText;
     public ArrayList<Book> mBooks = new ArrayList<>();

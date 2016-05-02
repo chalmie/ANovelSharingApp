@@ -10,7 +10,7 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/userLibraryListView"
+        android:id="@+id/recyclerView"
         android:layout_below="@+id/searchButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

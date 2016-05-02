@@ -10,5 +10,5 @@ public class Constants {
     public static final String BOOK_QUERY_TITLE_PARAMETER = "q";
     public static final String PREFERENCES_LOCATION_KEY = "location";
     public static final String FIREBASE_BOOKS = "books";
-    public static final String FIREBASE_URL_ADDED_BOOK = FIREBASE_URL + "/" + FIREBASE_BOOKS;
+    public static final String FIREBASE_URL_ADDED_BOOK = FIREBASE_URL + FIREBASE_BOOKS;
 }
