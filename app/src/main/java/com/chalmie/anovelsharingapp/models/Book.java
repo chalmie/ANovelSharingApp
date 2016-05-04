@@ -12,15 +12,17 @@ public class Book {
     String image;
     int pageCount;
     String publishedDate;
+    String buyLink;
 
     public Book() {}
 
-    public Book(String title, String author, String image, int pageCount, String publishedDate) {
+    public Book(String title, String author, String image, int pageCount, String publishedDate, String buyLink) {
         this.title = title;
         this.author = author;
         this.image = image;
         this.pageCount = pageCount;
         this.publishedDate = publishedDate;
+        this.buyLink = buyLink;
     }
 
 
@@ -42,5 +44,9 @@ public class Book {
 
     public String getPublishedDate() {
         return publishedDate;
+    }
+
+    public String getBuyLink() {
+        return buyLink;
     }
 }
