@@ -2,7 +2,9 @@ package com.chalmie.anovelsharingapp.ui;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,6 +35,7 @@ public class LibraryDetailFragment extends Fragment implements View.OnClickListe
     @Bind(R.id.pageCountTextView) TextView mPageCountTextView;
     @Bind(R.id.publishedDateTextView) TextView mPublishedDateTextView;
     @Bind(R.id.addBookButton) Button mAddBookButton;
+    private SharedPreferences mSharedPreferences;
 
 
     private Book mBook;
@@ -53,8 +56,7 @@ public class LibraryDetailFragment extends Fragment implements View.OnClickListe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBook = Parcels.unwrap(getArguments().getParcelable("book"));
-
-
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
     }
 
 
@@ -74,7 +76,7 @@ public class LibraryDetailFragment extends Fragment implements View.OnClickListe
     }
 
     public void saveLocationToFirebase(Book book) {
-        Firebase searchedBookRef = new Firebase(Constants.FIREBASE_URL_ADDED_BOOK);
+        Firebase searchedBookRef = new Firebase(Constants.FIREBASE_URL_USERS + "/" + mSharedPreferences.getString("UID", "WRONG") + "/" + Constants.FIREBASE_BOOKS);
         searchedBookRef.push().setValue(book);
     }
 
