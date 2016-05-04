@@ -1,6 +1,8 @@
 package com.chalmie.anovelsharingapp.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -36,13 +38,16 @@ public class LibraryActivity extends AppCompatActivity implements View.OnClickLi
     private Firebase mSearchedBookRef;
     private ValueEventListener mSearchedBookRefListener;
     private FirebaseBookListAdapter mAdapter;
+    private SharedPreferences mSharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
         ButterKnife.bind(this);
-        mSearchedBookRef = new Firebase(Constants.FIREBASE_URL_ADDED_BOOK);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(LibraryActivity.this);
+
+        mSearchedBookRef = new Firebase(Constants.FIREBASE_URL_USERS + "/" + mSharedPreferences.getString("UID", "WRONG") + "/" + Constants.FIREBASE_BOOKS);
         setUpFirebaseQuery();
         setUpRecyclerView();
 
