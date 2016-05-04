@@ -32,11 +32,31 @@
                 android:value=".ui.LoginActivity" />
         </activity>
         <activity android:name=".ui.ProfileActivity" />
-        <activity android:name=".ui.LibraryActivity" />
-        <activity android:name=".ui.SharedBooksActivity" />
-        <activity android:name=".ui.SearchActivity" />
-        <activity android:name=".ui.LibraryListActivity" />
-        <activity android:name=".ui.LibraryDetailActivity"></activity>
+        <activity android:name=".ui.LibraryActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.ProfileActivity" />
+        </activity>
+        <activity android:name=".ui.SharedBooksActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.ProfileActivity" />
+        </activity>
+        <activity android:name=".ui.SearchActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.ProfileActivity" />
+        </activity>
+        <activity android:name=".ui.LibraryListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.LibraryActivity" />
+        </activity>
+        <activity android:name=".ui.LibraryDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.LibraryActivity" />
+        </activity>
     </application>
 
 </manifest>
