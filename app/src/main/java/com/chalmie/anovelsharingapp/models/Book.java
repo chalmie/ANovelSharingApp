@@ -7,40 +7,40 @@ import org.parceler.Parcel;
  */
 @Parcel
 public class Book {
-    String Title;
-    String Author;
-    String Image;
-    int PageCount;
-    String PublishedDate;
+    String title;
+    String author;
+    String image;
+    int pageCount;
+    String publishedDate;
 
     public Book() {}
 
-    public Book(String Title, String Author, String Image, int PageCount, String PublishedDate) {
-        this.Title = Title;
-        this.Author = Author;
-        this.Image = Image;
-        this.PageCount = PageCount;
-        this.PublishedDate = PublishedDate;
+    public Book(String title, String author, String image, int pageCount, String publishedDate) {
+        this.title = title;
+        this.author = author;
+        this.image = image;
+        this.pageCount = pageCount;
+        this.publishedDate = publishedDate;
     }
 
 
-    public String getBookTitle() {
-        return Title;
+    public String getTitle() {
+        return title;
     }
 
-    public String getBookAuthor() {
-        return Author;
+    public String getAuthor() {
+        return author;
     }
 
-    public String getBookImage() {
-        return Image;
+    public String getImage() {
+        return image;
     }
 
     public String getPageCount() {
-        return Integer.toString(PageCount);
+        return Integer.toString(pageCount);
     }
 
     public String getPublishedDate() {
-        return PublishedDate;
+        return publishedDate;
     }
 }

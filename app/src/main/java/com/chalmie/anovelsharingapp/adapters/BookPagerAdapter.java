@@ -32,7 +32,7 @@ public class BookPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return mBooks.get(position).getBookTitle();
+        return mBooks.get(position).getTitle();
     }
 
 }

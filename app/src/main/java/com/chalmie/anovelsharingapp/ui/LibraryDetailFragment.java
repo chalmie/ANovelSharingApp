@@ -64,12 +64,13 @@ public class LibraryDetailFragment extends Fragment implements View.OnClickListe
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_library_detail, container, false);
         ButterKnife.bind(this,view);
-        Picasso.with(view.getContext()).load(mBook.getBookImage()).into(mBookImageView);
-        mTitleTextView.setText(mBook.getBookTitle());
-        mAuthorTextView.setText("Author: " + mBook.getBookAuthor());
+        Picasso.with(view.getContext()).load(mBook.getImage()).into(mBookImageView);
+        mTitleTextView.setText(mBook.getTitle());
+        mAuthorTextView.setText("Author: " + mBook.getAuthor());
         mPageCountTextView.setText("Pages: " + mBook.getPageCount());
         mPublishedDateTextView.setText("Published Date: " + mBook.getPublishedDate());
         mAddBookButton.setOnClickListener(this);
+        Log.d("Book Object", mBook.toString());
         return view;
     }
 

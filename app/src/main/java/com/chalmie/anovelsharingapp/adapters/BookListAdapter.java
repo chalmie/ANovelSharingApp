@@ -75,9 +75,9 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.BookVi
         }
 
         public void bindBook(Book book) {
-            mTitleTextView.setText(book.getBookTitle());
-            mAuthorTextView.setText(book.getBookAuthor());
-            Picasso.with(mContext).load(book.getBookImage()).into(mBookImageView);
+            mTitleTextView.setText(book.getTitle());
+            mAuthorTextView.setText(book.getAuthor());
+            Picasso.with(mContext).load(book.getImage()).into(mBookImageView);
         }
     }
 }
