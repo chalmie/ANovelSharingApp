@@ -70,7 +70,6 @@ public class LibraryDetailFragment extends Fragment implements View.OnClickListe
         mPageCountTextView.setText("Pages: " + mBook.getPageCount());
         mPublishedDateTextView.setText("Published Date: " + mBook.getPublishedDate());
         mAddBookButton.setOnClickListener(this);
-        Log.d("Book Object", mBook.toString());
         return view;
     }
 
