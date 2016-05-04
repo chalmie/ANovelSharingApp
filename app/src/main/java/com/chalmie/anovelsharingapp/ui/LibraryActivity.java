@@ -43,7 +43,8 @@ public class LibraryActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_library);
         ButterKnife.bind(this);
         mSearchedBookRef = new Firebase(Constants.FIREBASE_URL_ADDED_BOOK);
-
+        setUpFirebaseQuery();
+        setUpRecyclerView();
 
         mSearchedBookRefListener = mSearchedBookRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -60,8 +61,7 @@ public class LibraryActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-        setUpFirebaseQuery();
-        setUpRecyclerView();
+
         mSearchButton.setOnClickListener(this);
     }
 
