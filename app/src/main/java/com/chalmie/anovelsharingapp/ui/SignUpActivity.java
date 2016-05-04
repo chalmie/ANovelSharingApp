@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 import com.chalmie.anovelsharingapp.Constants;
 import com.chalmie.anovelsharingapp.R;
+import com.chalmie.anovelsharingapp.models.User;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
@@ -52,7 +53,8 @@ public class SignUpActivity extends AppCompatActivity {
         mFirebaseRef.createUser(email,password, new Firebase.ValueResultHandler<Map<String, Object>>() {
             @Override
             public void onSuccess(Map<String,Object> result) {
-
+                String uid = result.get("uid").toString();
+                createUserInFirebaseHelper(username, email, uid);
             }
 
             @Override
@@ -60,5 +62,11 @@ public class SignUpActivity extends AppCompatActivity {
                 Log.d("Firebase Error", "error occured" + firebaseError);
             }
         });
+    }
+
+    private void createUserInFirebaseHelper(final String name, final String email, final String uid) {
+        final Firebase userLocation = new Firebase(Constants.FIREBASE_URL_USERS).child(uid);
+        User newUser = new User(name, email);
+        userLocation.setValue(newUser);
     }
 }
