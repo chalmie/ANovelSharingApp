@@ -4,18 +4,18 @@ package com.chalmie.anovelsharingapp.models;
  * Created by chalmie on 5/4/16.
  */
 public class User {
-    private String name;
+    private String username;
     private String email;
 
     public User() {}
 
-    public User(String name, String email) {
-        this.name = name;
+    public User(String username, String email) {
+        this.username = username;
         this.email = email;
     }
 
     public String getName() {
-        return name;
+        return username;
     }
 
     public String getEmail() {

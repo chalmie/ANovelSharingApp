@@ -38,8 +38,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 createNewUser();
                 String username = mUsernameEditText.getText().toString();
-                Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
-                intent.putExtra("username", username);
+                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

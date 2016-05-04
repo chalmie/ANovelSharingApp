@@ -27,8 +27,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        String username = intent.getStringExtra("username");
-        mWelcomeTextView.setText("Welcome " + username + "!");
+        String userUid = intent.getStringExtra("userUid");
+        mWelcomeTextView.setText("Welcome " + userUid + "!");
 
         mLibraryButton.setOnClickListener(this);
         mSharedBooksButton.setOnClickListener(this);

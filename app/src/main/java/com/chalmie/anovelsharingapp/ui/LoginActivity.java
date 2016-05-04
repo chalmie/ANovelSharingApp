@@ -16,6 +16,7 @@ import com.chalmie.anovelsharingapp.R;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.firebase.client.Query;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -71,8 +72,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (authData != null) {
                     String userUid = authData.getUid();
                     mSharedPreferencesEditor.putString(Constants.KEY_UID, userUid).apply();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                    intent.putExtra("userUid", userUid);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    String userInfo = authData.toString();
+                    Log.d("Currently logged in",userInfo);
                     startActivity(intent);
                     finish();
                 }
@@ -101,4 +105,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void showErrorToast(String message) {
         Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
     }
+
 }
