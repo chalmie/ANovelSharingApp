@@ -78,6 +78,13 @@
                     android:text="Page Count"
                     android:id="@+id/pageCountTextView" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Buy it now"
+                    android:id="@+id/idTextView"
+                    android:textColor="@color/colorPrimary"/>
+
 
             </LinearLayout>
 

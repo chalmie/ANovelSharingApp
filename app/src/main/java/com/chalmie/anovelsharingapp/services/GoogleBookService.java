@@ -61,9 +61,10 @@ public class GoogleBookService {
                     int pageCount = volumeInfoJSON.getInt("pageCount");
                     String author = authorsInfoJSON.getString(0);
                     String image = imagesInfoJSON.getString("thumbnail");
+                    String id = basicInfoJSON.getString("id");
 
 
-                    Book book = new Book(title,author,image,pageCount,publishedDate);
+                    Book book = new Book(title,author,image,pageCount,publishedDate,id);
                     books.add(book);
                 }
             }

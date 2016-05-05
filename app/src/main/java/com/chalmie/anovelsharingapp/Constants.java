@@ -9,6 +9,7 @@ public class Constants {
     public static final String BOOK_BASE_URL = "https://www.googleapis.com/books/v1/volumes";
     public static final String BOOK_QUERY_TITLE_PARAMETER = "q";
 
+
     //Firebase
     public static final String FIREBASE_URL = BuildConfig.FIREBASE_ROOT_URL;
 

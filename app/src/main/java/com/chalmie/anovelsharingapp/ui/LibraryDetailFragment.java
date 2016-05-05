@@ -3,6 +3,7 @@ package com.chalmie.anovelsharingapp.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
@@ -35,6 +36,7 @@ public class LibraryDetailFragment extends Fragment implements View.OnClickListe
     @Bind(R.id.pageCountTextView) TextView mPageCountTextView;
     @Bind(R.id.publishedDateTextView) TextView mPublishedDateTextView;
     @Bind(R.id.addBookButton) Button mAddBookButton;
+    @Bind(R.id.idTextView) TextView mIdTextView;
     private SharedPreferences mSharedPreferences;
 
 
@@ -72,6 +74,7 @@ public class LibraryDetailFragment extends Fragment implements View.OnClickListe
         mPageCountTextView.setText("Pages: " + mBook.getPageCount());
         mPublishedDateTextView.setText("Published Date: " + mBook.getPublishedDate());
         mAddBookButton.setOnClickListener(this);
+        mIdTextView.setOnClickListener(this);
         return view;
     }
 
@@ -86,6 +89,11 @@ public class LibraryDetailFragment extends Fragment implements View.OnClickListe
             saveLocationToFirebase(mBook);
             Intent intent = new Intent(getActivity(), LibraryActivity.class);
             startActivity(intent);
+        }
+        if (v == mIdTextView) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://play.google.com/store/books/details?id=" + mBook.getId() + "&rdid=book-" + mBook.getId() + "&rdot=1&source=gbs_atb&pcampaignid=books_booksearch_atb"));
+            startActivity(webIntent);
         }
     }
 

@@ -12,15 +12,17 @@ public class Book {
     String image;
     int pageCount;
     String publishedDate;
+    String id;
 
     public Book() {}
 
-    public Book(String title, String author, String image, int pageCount, String publishedDate) {
+    public Book(String title, String author, String image, int pageCount, String publishedDate, String id) {
         this.title = title;
         this.author = author;
         this.image = image;
         this.pageCount = pageCount;
         this.publishedDate = publishedDate;
+        this.id = id;
     }
 
 
@@ -42,6 +44,10 @@ public class Book {
 
     public String getPublishedDate() {
         return publishedDate;
+    }
+
+    public String getId() {
+        return id;
     }
 
 }
