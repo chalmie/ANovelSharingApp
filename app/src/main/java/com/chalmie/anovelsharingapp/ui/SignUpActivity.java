@@ -63,9 +63,9 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    private void createUserInFirebaseHelper(final String name, final String email, final String uid) {
+    private void createUserInFirebaseHelper(final String username, final String email, final String uid) {
         final Firebase userLocation = new Firebase(Constants.FIREBASE_URL_USERS).child(uid);
-        User newUser = new User(name, email);
+        User newUser = new User(username, email);
         userLocation.setValue(newUser);
     }
 }

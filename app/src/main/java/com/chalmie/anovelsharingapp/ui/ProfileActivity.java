@@ -1,8 +1,11 @@
 package com.chalmie.anovelsharingapp.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,7 +16,12 @@ import android.widget.TextView;
 
 import com.chalmie.anovelsharingapp.Constants;
 import com.chalmie.anovelsharingapp.R;
+import com.chalmie.anovelsharingapp.models.User;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.Query;
+import com.firebase.client.ValueEventListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,7 +32,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     @Bind(R.id.sharedBooksButton) Button mSharedBooksButton;
     @Bind(R.id.searchButton) Button mSearchButton;
     @Bind(R.id.welcomeTextView) TextView mWelcomeTextView;
+
     private Firebase mFirebaseRef;
+    private ValueEventListener mUserRefListener;
+    private Firebase mUserRef;
+    private String mUId;
+    private SharedPreferences mSharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +45,21 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_profile);
         ButterKnife.bind(this);
         mFirebaseRef = new Firebase(Constants.FIREBASE_URL);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(ProfileActivity.this);
+        mUserRef = new Firebase(Constants.FIREBASE_URL_USERS + "/" + mSharedPreferences.getString("UID", "WRONG"));
+        mUserRefListener = mUserRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                mWelcomeTextView.setText("Welcome " + user.getUsername() + "!");
+            }
 
-        Intent intent = getIntent();
-        String userUid = intent.getStringExtra("userUid");
-        mWelcomeTextView.setText("Welcome " + userUid + "!");
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                Log.d("UserWelcome", "Read failed");
+            }
+        });
+
 
         mLibraryButton.setOnClickListener(this);
         mSharedBooksButton.setOnClickListener(this);
@@ -84,4 +108,5 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         startActivity(intent);
         finish();
     }
+
 }

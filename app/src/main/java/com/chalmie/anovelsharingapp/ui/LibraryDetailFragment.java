@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.chalmie.anovelsharingapp.Constants;
 import com.chalmie.anovelsharingapp.R;
@@ -87,6 +88,7 @@ public class LibraryDetailFragment extends Fragment implements View.OnClickListe
     public void onClick(View v) {
         if (v == mAddBookButton) {
             saveLocationToFirebase(mBook);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getActivity(), LibraryActivity.class);
             startActivity(intent);
         }
