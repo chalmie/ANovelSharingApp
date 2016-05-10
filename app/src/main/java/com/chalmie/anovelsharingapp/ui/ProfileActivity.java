@@ -45,13 +45,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_profile);
         ButterKnife.bind(this);
         mFirebaseRef = new Firebase(Constants.FIREBASE_URL);
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(ProfileActivity.this);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mUserRef = new Firebase(Constants.FIREBASE_URL_USERS + "/" + mSharedPreferences.getString("UID", "WRONG"));
         mUserRefListener = mUserRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                mWelcomeTextView.setText("Welcome " + user.getUsername() + "!");
+                String username = dataSnapshot.child("username").getValue().toString();
+                mWelcomeTextView.setText("Welcome " + username + "!");
             }
 
             @Override
@@ -110,3 +110,5 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 }
+
+

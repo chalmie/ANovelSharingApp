@@ -1,11 +1,14 @@
 package com.chalmie.anovelsharingapp.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by chalmie on 5/4/16.
  */
 public class User {
-    private String username;
-    private String email;
+    String username;
+    String email;
 
     public User() {}
 
@@ -21,4 +24,5 @@ public class User {
     public String getEmail() {
         return email;
     }
+
 }

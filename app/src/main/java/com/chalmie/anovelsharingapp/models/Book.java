@@ -10,13 +10,13 @@ public class Book {
     String title;
     String author;
     String image;
-    int pageCount;
+    String pageCount;
     String publishedDate;
     String id;
 
     public Book() {}
 
-    public Book(String title, String author, String image, int pageCount, String publishedDate, String id) {
+    public Book(String title, String author, String image, String pageCount, String publishedDate, String id) {
         this.title = title;
         this.author = author;
         this.image = image;
@@ -39,7 +39,7 @@ public class Book {
     }
 
     public String getPageCount() {
-        return Integer.toString(pageCount);
+        return pageCount;
     }
 
     public String getPublishedDate() {

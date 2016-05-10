@@ -10,10 +10,13 @@ import android.widget.EditText;
 
 import com.chalmie.anovelsharingapp.Constants;
 import com.chalmie.anovelsharingapp.R;
+import com.chalmie.anovelsharingapp.models.Book;
 import com.chalmie.anovelsharingapp.models.User;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.Bind;
@@ -37,7 +40,6 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 createNewUser();
-                String username = mUsernameEditText.getText().toString();
                 Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
@@ -67,5 +69,6 @@ public class SignUpActivity extends AppCompatActivity {
         final Firebase userLocation = new Firebase(Constants.FIREBASE_URL_USERS).child(uid);
         User newUser = new User(username, email);
         userLocation.setValue(newUser);
+
     }
 }

@@ -12,6 +12,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -58,7 +59,7 @@ public class GoogleBookService {
 
                     String title = volumeInfoJSON.getString("title");
                     String publishedDate = volumeInfoJSON.getString("publishedDate");
-                    int pageCount = volumeInfoJSON.getInt("pageCount");
+                    String pageCount = Integer.toString(volumeInfoJSON.getInt("pageCount"));
                     String author = authorsInfoJSON.getString(0);
                     String image = imagesInfoJSON.getString("thumbnail");
                     String id = basicInfoJSON.getString("id");
