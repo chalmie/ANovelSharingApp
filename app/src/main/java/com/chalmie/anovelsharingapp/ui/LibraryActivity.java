@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -18,6 +19,8 @@ import com.chalmie.anovelsharingapp.Constants;
 import com.chalmie.anovelsharingapp.R;
 import com.chalmie.anovelsharingapp.adapters.FirebaseBookListAdapter;
 import com.chalmie.anovelsharingapp.models.Book;
+import com.chalmie.anovelsharingapp.util.OnStartDragListener;
+import com.chalmie.anovelsharingapp.util.SimpleItemTouchHelperCallback;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -29,7 +32,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class LibraryActivity extends AppCompatActivity implements View.OnClickListener {
+public class LibraryActivity extends AppCompatActivity implements View.OnClickListener, OnStartDragListener {
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     @Bind(R.id.searchButton) Button mSearchButton;
     @Bind(R.id.searchBookEditText) EditText mSearchBookEditText;
@@ -39,6 +42,7 @@ public class LibraryActivity extends AppCompatActivity implements View.OnClickLi
     private ValueEventListener mSearchedBookRefListener;
     private FirebaseBookListAdapter mAdapter;
     private SharedPreferences mSharedPreferences;
+    private ItemTouchHelper mItemTouchHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,9 +94,18 @@ public class LibraryActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void setUpRecyclerView() {
-        mAdapter = new FirebaseBookListAdapter(mQuery, Book.class);
+        mAdapter = new FirebaseBookListAdapter(mQuery, Book.class, this);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
+
+        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mAdapter);
+        mItemTouchHelper = new ItemTouchHelper(callback);
+        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
+    }
+
+    @Override
+    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+        mItemTouchHelper.startDrag(viewHolder);
     }
 
 }

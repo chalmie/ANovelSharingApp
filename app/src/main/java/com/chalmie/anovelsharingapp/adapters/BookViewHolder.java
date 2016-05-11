@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.chalmie.anovelsharingapp.R;
 import com.chalmie.anovelsharingapp.models.Book;
 import com.chalmie.anovelsharingapp.ui.LibraryActivity;
+import com.chalmie.anovelsharingapp.util.ItemTouchHelperViewHolder;
 
 import org.parceler.Parcels;
 
@@ -20,7 +21,7 @@ import butterknife.ButterKnife;
 /**
  * Created by chalmie on 5/4/16.
  */
-public class BookViewHolder extends RecyclerView.ViewHolder {
+public class BookViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
     @Bind(R.id.titleTextView) TextView mTitleTextView;
     @Bind(R.id.authorTextView) TextView mAuthorTextView;
 
@@ -49,5 +50,15 @@ public class BookViewHolder extends RecyclerView.ViewHolder {
 
         mTitleTextView.setText(book.getTitle());
         mAuthorTextView.setText(book.getAuthor());
+    }
+
+    @Override
+    public void onItemSelected() {
+        //  Will add code for animations here later.
+    }
+
+    @Override
+    public void onItemClear() {
+        //  Will add code for removing animations here later.
     }
 }

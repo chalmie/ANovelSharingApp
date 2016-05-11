@@ -81,7 +81,10 @@ public class LibraryDetailFragment extends Fragment implements View.OnClickListe
 
     public void saveLocationToFirebase(Book book) {
         Firebase searchedBookRef = new Firebase(Constants.FIREBASE_URL_USERS + "/" + mSharedPreferences.getString("UID", "WRONG") + "/" + Constants.FIREBASE_BOOKS);
-        searchedBookRef.push().setValue(book);
+        Firebase pushRef = searchedBookRef.push();
+        String bookPushId = pushRef.getKey();
+        mBook.setPushId(bookPushId);
+        pushRef.setValue(mBook);
     }
 
     @Override

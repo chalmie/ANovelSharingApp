@@ -13,6 +13,7 @@ public class Book {
     String pageCount;
     String publishedDate;
     String id;
+    String pushId;
 
     public Book() {}
 
@@ -50,4 +51,11 @@ public class Book {
         return id;
     }
 
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
 }
