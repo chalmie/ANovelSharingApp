@@ -90,7 +90,7 @@ public class LibraryActivity extends AppCompatActivity implements View.OnClickLi
 
     private void setUpFirebaseQuery() {
         String book = mSearchedBookRef.toString();
-        mQuery = new Firebase(book);
+        mQuery = new Firebase(book).orderByChild("title");
     }
 
     private void setUpRecyclerView() {
