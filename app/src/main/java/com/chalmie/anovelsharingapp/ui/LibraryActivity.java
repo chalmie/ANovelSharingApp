@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.chalmie.anovelsharingapp.Constants;
 import com.chalmie.anovelsharingapp.R;
