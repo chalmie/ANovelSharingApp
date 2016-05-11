@@ -3,10 +3,12 @@ package com.chalmie.anovelsharingapp.ui;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.Menu;
@@ -47,6 +49,7 @@ public class LibraryActivity extends AppCompatActivity implements View.OnClickLi
     private SharedPreferences mSharedPreferences;
     private ItemTouchHelper mItemTouchHelper;
     private Firebase mFirebaseRef;
+    private SharedPreferences.Editor mEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +129,27 @@ public class LibraryActivity extends AppCompatActivity implements View.OnClickLi
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
+        inflater.inflate(R.menu.menu_search, menu);
+        ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                getBooks(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
         return true;
     }
 
@@ -141,4 +165,11 @@ public class LibraryActivity extends AppCompatActivity implements View.OnClickLi
         finish();
     }
 
+
+    //getBooks method to query firebase user's books
+    private void getBooks(String title) {
+        String book = mSearchedBookRef.toString();
+        mQuery = new Firebase(book).orderByChild("title").equalTo(title);
+        setUpRecyclerView();
+    }
 }
