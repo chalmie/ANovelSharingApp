@@ -5,11 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
+import com.chalmie.anovelsharingapp.Constants;
 import com.chalmie.anovelsharingapp.R;
 import com.chalmie.anovelsharingapp.adapters.BookListAdapter;
 import com.chalmie.anovelsharingapp.models.Book;
 import com.chalmie.anovelsharingapp.services.GoogleBookService;
+import com.firebase.client.Firebase;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,12 +29,14 @@ public class LibraryListActivity extends AppCompatActivity {
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     public ArrayList<Book> mBooks = new ArrayList<>();
     private BookListAdapter mAdapter;
+    private Firebase mFirebaseRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library_list);
         ButterKnife.bind(this);
+        mFirebaseRef = new Firebase(Constants.FIREBASE_URL);
 
         Intent intent = getIntent();
         String title = intent.getStringExtra("title");
@@ -60,5 +67,34 @@ public class LibraryListActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            logout();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    protected void logout() {
+        mFirebaseRef.unauth();
+        takeUserToLoginScreenOnUnAuth();
+    }
+
+    private void takeUserToLoginScreenOnUnAuth() {
+        Intent intent = new Intent(LibraryListActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 }
