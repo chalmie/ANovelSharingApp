@@ -173,4 +173,5 @@ public class LibraryActivity extends AppCompatActivity implements View.OnClickLi
         mQuery = new Firebase(book).orderByChild("title").equalTo(title);
         setUpRecyclerView();
     }
+
 }
